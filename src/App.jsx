@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import './index.css'
+import './index.css';
 
 import viteLogo from "/vite.svg";
 import reactLogo from "/react.svg";
@@ -11,12 +11,71 @@ import cplusplusLogo from "/cplusplus.svg";
 import rustLogo from "/rust.svg";
 import rubyLogo from "/ruby.svg";
 
+const languages = {
+  vite: {
+    name: 'Vite',
+    description: 'Vite is a build tool for frontend development.',
+    link: 'https://vitejs.dev/',
+    className: 'item',
+    logo: viteLogo,
+  },
+  react: {
+    name: 'React',
+    description: 'React is a JavaScript library for building user interfaces.',
+    link: 'https://react.dev/',
+    className: 'item',
+    logo: reactLogo,
+  },
+  javascript: {
+    name: 'JavaScript',
+    description: 'JavaScript is a versatile scripting language.',
+    link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide',
+    className: 'item',
+    logo: javascriptLogo,
+  },
+  python: {
+    name: 'Python',
+    description: 'Python is a versatile programming language known for its simplicity and readability.',
+    link: 'https://www.python.org/',
+    className: 'item',
+    logo: pythonLogo,
+  },
+  csharp: {
+    name: 'C#',
+    description: 'C# is a statically typed, object-oriented programming language developed by Microsoft.',
+    link: 'https://dotnet.microsoft.com/en/languages/csharp',
+    className: 'item',
+    logo: csharpLogo,
+  },
+  cplusplus: {
+    name: 'C++',
+    description: 'C++ is a powerful, high-performance programming language.',
+    link: 'https://cplusplus.com/doc/tutorial/',
+    className: 'item',
+    logo: cplusplusLogo,
+  },
+  rust: {
+    name: 'Rust',
+    description: 'Rust is a systems programming language known for its safety and performance.',
+    link: 'https://www.rust-lang.org/',
+    className: 'item',
+    logo: rustLogo,
+  },
+  ruby: {
+    name: 'Ruby',
+    description: 'Ruby is a dynamic, object-oriented programming language.',
+    link: 'https://www.ruby-lang.org/en/',
+    className: 'item',
+    logo: rubyLogo,
+  },
+};
+
 function App() {
   const [languageName, setLanguageName] = useState('');
   const [languageImage, setLanguageImage] = useState('');
   const [languageDescription, setLanguageDescription] = useState('Select a language to learn more about it.');
   const [languageLink, setLanguageLink] = useState('');
-  const [className, setClassName] = useState('')
+  const [className, setClassName] = useState('');
 
   function changeLanguage(name, image, description, link, className) {
     setLanguageName(name);
@@ -35,68 +94,29 @@ function App() {
       </div>
       <h1>{languageName}</h1>
       <div>
-        <button onClick={() => changeLanguage('Vite', viteLogo, 'Vite is a build tool for frontend development.', 'https://vitejs.dev/', 'item')}>
-          <img src={viteLogo} className="logo vitelogo" alt="Vite logo" title="Vite" />
-        </button>
-        <button onClick={() => changeLanguage('React', reactLogo, 'React is a JavaScript library for building user interfaces.', 'https://react.dev/', 'item')}>
-          <img src={reactLogo} className="logo reactlogo" alt="React logo" title="React" />
-        </button>
-        <button onClick={() => changeLanguage('JavaScript', javascriptLogo, 'JavaScript is a versatile scripting language.', 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide', 'item')}>
-          <img src={javascriptLogo} className="logo javascriptlogo" alt="JavaScript logo" title="JavaScript" />
-        </button>
-        <button onClick={() => changeLanguage('Python', pythonLogo, 'Python is a versatile programming language known for its simplicity and readability.', 'https://www.python.org/', 'item')}>
-          <img src={pythonLogo} className="logo pythonlogo" alt="Python logo" title="Python" />
-        </button>
-        <button onClick={() => changeLanguage('C#', csharpLogo, 'C# is a statically typed, object-oriented programming language developed by Microsoft.', 'https://dotnet.microsoft.com/en/languages/csharp', 'item')}>
-          <img src={csharpLogo} className="logo csharplogo" alt="C# logo" title="C#" />
-        </button>
-        <button onClick={() => changeLanguage('C++', cplusplusLogo, 'C++ is a powerful, high-performance programming language.', 'https://cplusplus.com/doc/tutorial/', 'item')}>
-          <img src={cplusplusLogo} className="logo cpluspluslogo" alt="C++ logo" title="C++" />
-        </button>
-        <button onClick={() => changeLanguage('Rust', rustLogo, 'Rust is a systems programming language known for its safety and performance.', 'https://www.rust-lang.org/', 'item')}>
-          <img src={rustLogo} className="logo rustlogo" alt="Rust logo" title="Rust" />
-        </button>
-        <button onClick={() => changeLanguage('Ruby', rubyLogo, 'Ruby is a dynamic, object-oriented programming language.', 'https://www.ruby-lang.org/en/', 'item')}>
-          <img src={rubyLogo} className="logo rubylogo" alt="Ruby logo" title="Ruby" />
-        </button>
+        {Object.keys(languages).map((langKey) => (
+          <button
+            key={langKey}
+            onClick={() => changeLanguage(languages[langKey].name, languages[langKey].logo, languages[langKey].description, languages[langKey].link, languages[langKey].className)}
+          >
+            <img src={languages[langKey].logo} className="logo logobanner" alt={`${languages[langKey].name}`} title={languages[langKey].name} />
+          </button>
+        ))}
       </div>
       <div>
         <p id='content'>{languageDescription}</p>
       </div>
       <div className="container">
-        <div id="item-one" className={className}>  
+        {Array.from({ length: 6 }, (_, index) => (
+          <div key={index} className={className}>
             <div>
-                <article id="text"></article>
+              <article id="text"></article>
             </div>
-        </div>
-        <div id="item-two" className={className}>
-            <div>
-                <article id="text"></article>
-            </div>
-        </div>
-        <div id="item-three" className={className}>
-            <div>
-                <article id="text"></article>
-            </div>
-        </div>
-        <div id="item-four" className={className}>
-            <div>
-                <article id="text"></article>
-            </div>
-        </div>
-        <div id="item-five" className={className}>
-            <div>
-                <article id="text"></article>
-            </div>
-        </div>
-        <div id="item-six" className={className}>
-            <div>
-                <article id="text"></article>
-            </div>
-        </div>
+          </div>
+        ))}
       </div>
     </>
-  )
+  );
 }
 
 export default App;
