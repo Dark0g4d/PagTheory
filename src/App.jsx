@@ -71,9 +71,9 @@ const languages = {
 };
 
 function App() {
-  const [languageName, setLanguageName] = useState('');
+  const [languageName, setLanguageName] = useState('Select a language');
   const [languageImage, setLanguageImage] = useState('');
-  const [languageDescription, setLanguageDescription] = useState('Select a language to learn more about it.');
+  const [languageDescription, setLanguageDescription] = useState('');
   const [languageLink, setLanguageLink] = useState('');
   const [className, setClassName] = useState('');
 
@@ -103,14 +103,11 @@ function App() {
           </button>
         ))}
       </div>
-      <div>
-        <p id='content'>{languageDescription}</p>
-      </div>
       <div className="container">
         {Array.from({ length: 6 }, (_, index) => (
           <div key={index} className={className}>
             <div>
-              <article id="text"></article>
+              <article id="text"><p id='content'>{languageDescription}</p></article>
             </div>
           </div>
         ))}
