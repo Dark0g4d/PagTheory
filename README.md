@@ -1,5 +1,6 @@
 # PagTheory
 
+- [Overview](#overview)
 - [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -9,6 +10,7 @@
 - [License](#license)
 - [Additional Information](#additional-information)
   
+## Overview
 
 A simple React app that allows you to explore different programming languages and learn more about them.
 
