@@ -71,7 +71,7 @@ const languages = {
 };
 
 function App() {
-  const [languageName, setLanguageName] = useState('Select a language');
+  const [languageName, setLanguageName] = useState('');
   const [languageImage, setLanguageImage] = useState('');
   const [languageDescription, setLanguageDescription] = useState('');
   const [languageLink, setLanguageLink] = useState('');
