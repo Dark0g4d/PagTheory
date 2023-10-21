@@ -1,101 +1,119 @@
 import React, { useState } from 'react';
 import './App.css';
+import './index.css'
 
-import viteLogo from "/vite.svg";
-import reactLogo from "/react.svg";
-import javascriptLogo from "/javascript.svg";
-import pythonLogo from "/python.svg";
-import csharpLogo from "/csharp.svg";
-import cplusplusLogo from "/cplusplus.svg";
-import rustLogo from "/rust.svg";
-import rubyLogo from "/ruby.svg";
+import LanguageButton from './components/languagebutton'; // Create this component
+import LanguageItem from './components/languageitem';     // Create this component
+
+import viteLogo from "/public/vite.svg";
+import reactLogo from "/public/react.svg";
+import javascriptLogo from "/public/javascript.svg";
+import pythonLogo from "/public/python.svg";
+import csharpLogo from "/public/csharp.svg";
+import cplusplusLogo from "/public/cplusplus.svg";
+import rustLogo from "/public/rust.svg";
+import rubyLogo from "/public/ruby.svg";
+
+const languages = [
+  {
+    name: 'Vite',
+    image: viteLogo,
+    description: 'Vite is a build tool for frontend development.',
+    link: 'https://vitejs.dev/',
+    className: '.vitelogo',
+  },
+  {
+    name: 'React',
+    image: reactLogo,
+    description: 'React is a JavaScript library for building user interfaces.',
+    link: 'https://react.dev/',
+    className: '.reactlogo',
+  },
+  {
+    name: 'JavaScript',
+    image: javascriptLogo,
+    description: 'JavaScript is a versatile scripting language.',
+    link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide',
+    className: '.javascriptlogo',
+  },
+  {
+    name: 'Python',
+    image: pythonLogo,
+    description: 'Python is a versatile programming language known for its simplicity and readability.',
+    link: 'https://www.python.org/',
+    className: '.pythonlogo',
+  },
+  {
+    name: 'C#',
+    image: csharpLogo,
+    description: 'C# is a statically typed, object-oriented programming language developed by Microsoft.',
+    link: 'https://dotnet.microsoft.com/en/languages/csharp',
+    className: '.csharplogo',
+  },
+  {
+    name: 'C++',
+    image: cplusplusLogo,
+    description: 'C++ is a powerful, high-performance programming language.',
+    link: 'https://cplusplus.com/doc/tutorial/',
+    className: '.cpluspluslogo',
+  },
+  {
+    name: 'Rust',
+    image: rustLogo,
+    description: 'Rust is a systems programming language known for its safety and performance.',
+    link: 'https://www.rust-lang.org/',
+    className: '.rustlogo',
+  },
+  {
+    name: 'Ruby',
+    image: rubyLogo,
+    description: 'Ruby is a dynamic, object-oriented programming language.',
+    link: 'https://www.ruby-lang.org/en/',
+    className: '.rubylogo',
+  },
+  // You can add more languages here
+];
 
 function App() {
-  const [languageName, setLanguageName] = useState('');
-  const [languageImage, setLanguageImage] = useState('');
-  const [languageDescription, setLanguageDescription] = useState('Select a language to learn more about it.');
-  const [languageLink, setLanguageLink] = useState('');
-  const [className, setClassName] = useState('')
+  const [language, setLanguage] = useState({
+    name: '',
+    image: '',
+    description: 'Select a language to learn more about it.',
+    link: '',
+    className: '',
+  });
 
-  function changeLanguage(name, image, description, link, className) {
-    setLanguageName(name);
-    setLanguageImage(image);
-    setLanguageDescription(description);
-    setLanguageLink(link);
-    setClassName(className);
+  function changeLanguage(newLanguage) {
+    setLanguage(newLanguage);
   }
 
   return (
     <>
       <div className='banner'>
-        <a href={languageLink} target='_blank' title='Official Website'>
-          <img src={languageImage} className="logo logobanner" alt={languageName} />
+        <a href={language.link} target='_blank' title='Official Website'>
+          <img src={language.image} className="logo logobanner" alt={language.name} />
         </a>
       </div>
-      <h1>{languageName}</h1>
+      <h1>{language.name}</h1>
       <div>
-        <button onClick={() => changeLanguage('Vite', viteLogo, 'Vite is a build tool for frontend development.', 'https://vitejs.dev/', 'item')}>
-          <img src={viteLogo} className="logo vitelogo" alt="Vite logo" title="Vite" />
-        </button>
-        <button onClick={() => changeLanguage('React', reactLogo, 'React is a JavaScript library for building user interfaces.', 'https://react.dev/', 'item')}>
-          <img src={reactLogo} className="logo reactlogo" alt="React logo" title="React" />
-        </button>
-        <button onClick={() => changeLanguage('JavaScript', javascriptLogo, 'JavaScript is a versatile scripting language.', 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide', 'item')}>
-          <img src={javascriptLogo} className="logo javascriptlogo" alt="JavaScript logo" title="JavaScript" />
-        </button>
-        <button onClick={() => changeLanguage('Python', pythonLogo, 'Python is a versatile programming language known for its simplicity and readability.', 'https://www.python.org/', 'item')}>
-          <img src={pythonLogo} className="logo pythonlogo" alt="Python logo" title="Python" />
-        </button>
-        <button onClick={() => changeLanguage('C#', csharpLogo, 'C# is a statically typed, object-oriented programming language developed by Microsoft.', 'https://dotnet.microsoft.com/en/languages/csharp', 'item')}>
-          <img src={csharpLogo} className="logo csharplogo" alt="C# logo" title="C#" />
-        </button>
-        <button onClick={() => changeLanguage('C++', cplusplusLogo, 'C++ is a powerful, high-performance programming language.', 'https://cplusplus.com/doc/tutorial/', 'item')}>
-          <img src={cplusplusLogo} className="logo cpluspluslogo" alt="C++ logo" title="C++" />
-        </button>
-        <button onClick={() => changeLanguage('Rust', rustLogo, 'Rust is a systems programming language known for its safety and performance.', 'https://www.rust-lang.org/', 'item')}>
-          <img src={rustLogo} className="logo rustlogo" alt="Rust logo" title="Rust" />
-        </button>
-        <button onClick={() => changeLanguage('Ruby', rubyLogo, 'Ruby is a dynamic, object-oriented programming language.', 'https://www.ruby-lang.org/en/', 'item')}>
-          <img src={rubyLogo} className="logo rubylogo" alt="Ruby logo" title="Ruby" />
-        </button>
+        {languages.map((lang, index) => (
+          <LanguageButton
+            key={index}
+            language={lang}
+            onClick={() => changeLanguage(lang)}
+          />
+        ))}
       </div>
       <div>
-        <p id='content'>{languageDescription}</p>
+        <p id='content'>{language.description}</p>
       </div>
       <div className="container">
-        <div id="item-one" className={className}>  
-            <div>
-                <article id="text"></article>
-            </div>
-        </div>
-        <div id="item-two" className={className}>
-            <div>
-                <article id="text"></article>
-            </div>
-        </div>
-        <div id="item-three" className={className}>
-            <div>
-                <article id="text"></article>
-            </div>
-        </div>
-        <div id="item-four" className={className}>
-            <div>
-                <article id="text"></article>
-            </div>
-        </div>
-        <div id="item-five" className={className}>
-            <div>
-                <article id="text"></article>
-            </div>
-        </div>
-        <div id="item-six" className={className}>
-            <div>
-                <article id="text"></article>
-            </div>
-        </div>
+        {Array.from({ length: 6 }, (_, index) => (
+          <LanguageItem key={index} className={language.className} />
+        ))}
       </div>
     </>
-  )
+  );
 }
 
 export default App;
