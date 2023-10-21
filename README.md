@@ -14,8 +14,6 @@ A simple React app that allows you to explore different programming languages an
 
 ## Project Structure
 
-This project is organized like this:
-
 - `.node_modules/`: Node.js modules and dependencies for your project.
 - `.public/`: Publicly accessible assets, including images and other static files.
   - `cplusplus.svg`: Logo for the C++ language.
