@@ -114,3 +114,9 @@ For more information on using `React` and `vite`, refer to their respective docu
 
 - [React](https://github.com/facebook/react)
 - [Vite](https://github.com/vitejs/vite)
+
+## Official Website
+
+To access the official website of PagTheory, follow the link below:
+
+- [PagTheory](https://pagtheory.pagman.org)
