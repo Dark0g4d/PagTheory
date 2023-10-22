@@ -110,7 +110,7 @@ Feel free to modify and customize this app for your own projects.
 
 ## Additional Information
 
-For more information on using `React` and `vite`, refer to their respective documentation. You can find more details and the latest updates on the following repositories:
+For more information on using `React` and `Vite`, refer to their respective documentation. You can find more details and the latest updates on the following repositories:
 
 - [React](https://github.com/facebook/react)
 - [Vite](https://github.com/vitejs/vite)
