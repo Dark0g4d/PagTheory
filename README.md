@@ -31,9 +31,11 @@ A simple React app that allows you to explore different programming languages an
   - `App.jsx`: Main React component and logic for the app.
   - `index.css`: Global CSS styles for the app.
   - `main.jsx`: Main entry point for your React app.
+- `.dockerignore`: ...
 - `.eslintrc.cjs`: ESLint configuration file for linting your JavaScript code.
 - `.gitattributes`: Git attributes file for defining repository attributes.
 - `.gitignore`: Git ignore file for specifying files and folders to exclude from version control.
+- `Dockerfile`: ...
 - `index.html`: HTML template for your React app.
 - `LICENSE`: License file specifying the terms of use for your project.
 - `package-lock.json`: Auto-generated file that locks the version of each package's dependencies.
