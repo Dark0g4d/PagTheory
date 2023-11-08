@@ -14,35 +14,6 @@
 
 A simple React app that allows you to explore different programming languages and learn more about them.
 
-## Project Structure
-
-- `.node_modules/`: Node.js modules and dependencies for your project.
-- `.public/`: Publicly accessible assets, including images and other static files.
-  - `cplusplus.svg`: Logo for the C++ language.
-  - `csharp.svg`: Logo for the C# language.
-  - `javascript.svg`: Logo for the JavaScript language.
-  - `python.svg`: Logo for the Python language.
-  - `react.svg`: Logo for the React library.
-  - `ruby.svg`: Logo for the Ruby language.
-  - `rust.svg`: Logo for the Rust language.
-  - `vite.svg`: Logo for the Vite build tool.
-- `.src/`: Source code files and styles for your React app.
-  - `App.css`: CSS file for styling the app.
-  - `App.jsx`: Main React component and logic for the app.
-  - `index.css`: Global CSS styles for the app.
-  - `main.jsx`: Main entry point for your React app.
-- `.dockerignore`: ...
-- `.eslintrc.cjs`: ESLint configuration file for linting your JavaScript code.
-- `.gitattributes`: Git attributes file for defining repository attributes.
-- `.gitignore`: Git ignore file for specifying files and folders to exclude from version control.
-- `Dockerfile`: ...
-- `index.html`: HTML template for your React app.
-- `LICENSE`: License file specifying the terms of use for your project.
-- `package-lock.json`: Auto-generated file that locks the version of each package's dependencies.
-- `package.json`: Project manifest file that defines the metadata and dependencies of your project.
-- `README.md`: This file, containing information about your project, its structure, and how to use it.
-- `vite.config.js`: Configuration file for Vite build tool if applicable to your project.
-
 ## Prerequisites
 
 Before you can run this React app, make sure you have the following prerequisites:
