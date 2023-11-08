@@ -1,6 +1,6 @@
 # Build the website
 
-FROM node:latest AS build-website
+FROM node:latest AS builder
 
 WORKDIR /app
 
@@ -13,15 +13,6 @@ RUN npm run build
 
 # Serve the website
 
-FROM busybox:1.36
+FROM afonsopc/web-server AS runtime
 
-# Create a non-root user to own the files and the server
-RUN adduser -D static
-USER static
-WORKDIR /home/static
-
-# Copy the static website
-COPY --from=build-website /app/dist .
-
-# Run BusyBox httpd
-CMD echo "starting http server..." && busybox httpd -f -v -p 3000
+COPY --from=builder /app/dist /web
